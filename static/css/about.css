@@ -2,12 +2,12 @@
 /* about */
 /* banner */
 .banner { height: 180px; text-align: center; overflow: hidden; margin: 30px; line-height: 30px; text-shadow: #fff 1px 1px 1px; background: url(../images/banner_top.jpg) no-repeat -90px center; color: #333; padding: 40px 0 0 0 }
-/*ÎÄ×Ö¶¯»­Ð§¹û*/
+/*ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½Ð§ï¿½ï¿½*/
 
-/*¼ÍÄîÈÕ*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .memorial_day { overflow: hidden; position: relative; padding: 60px; }
 .time_axis { background: #e9f5fb; height: 6px; width: 100%; animation: time_a 5s; -moz-animation: time_a 5s; /* Firefox */ -webkit-animation: time_a 5s; /* Safari and Chrome */ -o-animation: time_a 5s; /* Opera */ }
-/*Ê±¼äÖá¶¯»­Ð§¹û*/
+/*Ê±ï¿½ï¿½ï¿½á¶¯ï¿½ï¿½Ð§ï¿½ï¿½*/
 @keyframes time_a { 0% {
 width:0px;
 }
@@ -72,6 +72,7 @@ width:840px;
 .memorial_day ul li.n5 { position: absolute; top: 54px; left: 790px }
 .about { width: 90%; margin: 30px auto; overflow: hidden; line-height: 22px; }
 .about h2 { font-size: 22px; margin-bottom: 20px; background: #2a7497; padding: 10px 0; width: 200px; text-align: center; border-radius: 0 30px 30px 0; box-shadow: #21566f 1px 1px 1px; border-left: #dae1e4 6px solid; }
+.about h3 { font-size: 14px; margin-bottom: 20px; background: #47A9FF; padding: 6px 0; width: 180px; text-align: center; border-radius: 0 20px 20px 0; box-shadow: #4bcfef 1px 1px 1px; border-left: #dae1e4 6px solid; }
 .about p { margin-bottom: 20px }
 .about ul { }
 .about_c { padding: 10px 0 0 10px; color: #999; line-height: 26px; }
