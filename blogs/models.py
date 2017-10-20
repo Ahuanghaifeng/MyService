@@ -7,9 +7,9 @@ class Article(models.Model):
     # 博客标题定义为字符串，最大长度为32默认值是title
 
     title = models.CharField(max_length=32, default='Title')
-    author = models.CharField(null=False, max_length=16)
-    image_url = models.CharField(max_length=255, null=False)
-    abstract = models.TextField(null=False)
+    author = models.CharField(null=True, max_length=16)
+    image_url = models.CharField(max_length=255, null=True)
+    abstract = models.TextField(null=True)
     # 定义blog的内容，内容可以为空
     content = models.TextField(null=True)
     pub_time = models.DateTimeField(null=True)
