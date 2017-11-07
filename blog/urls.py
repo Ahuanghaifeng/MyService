@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^$', include('blogs.main')),
     url(r'^blog/', include('blogs.urls', namespace='blog')),
     url(r'^api/', include('blogs.api')),
+    url(r'^movie/', include('movie.urls',namespace='movie'))
 ]

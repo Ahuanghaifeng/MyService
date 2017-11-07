@@ -1,6 +1,7 @@
 #encoding=utf-8
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import JsonResponse
 from . import models
 import sys
 import json
@@ -88,5 +89,6 @@ def main(request):
 def api_getAll_article(request):
     articles = models.Article.objects.all()
     json_data = convert_obj_to_dicts(articles)
+    # return JsonResponse(json.d)
     return HttpResponse(json.dumps(json_data), content_type="application/json")
 

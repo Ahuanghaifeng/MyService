@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>电影下载</title>
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <link href="{% static 'css/movie_base.css' %}" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<header>
+    <div class="logo" data-scroll-reveal="enter right over 1s"><a href="/">DownloaderMovie</a></div>
+    <nav class="topnav" data-scroll-reveal="enter bottom over 1s after 1s">
+    <a href="index.html"><span>最新电影</span><span class="en">new</span></a>
+    <a href="china.html"><span>国内电影</span><span class="en">china</span></a>
+    <a href="japan.html"><span>日韩电影</span><span class="en">Japan</span></a>
+    <a href="america.html"><span>欧美电影</span><span class="en">America</span></a>
+</nav>
+</header>
+<body>
+<div class="container">
+    <div class="movie">
+        {% for movie in movies%}
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ntable" style="margin-top:6px">
+                <tr>
+                    <td height="1" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td width="5%" height="26" align="center"></td>
+                    <td height="26"><b><a href="movie/detail/{{movie.movie_id}}"><font color="#07519a">{{ movie.movie_name}}</font></a></b></td>
+                </tr>
+                <tr>
+                    <td height="20" style="padding-left:3px">&nbsp;</td>
+                    <td style="padding-left:3px"><font color="#8F8C89">{{movie.movie_time}}</font></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="padding-left:3px">{{movie.movie_abstract}}</td>
+                </tr>
+            </table>
+        {% endfor %}
+    </div>
+    <div class="foot">
+        <ul class="pagination pagination-sm">
+            {{ page_obj.page_str|safe }}
+        </ul>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -17,4 +17,24 @@ class Migration(migrations.Migration):
             name='pub_time',
             field=models.DateTimeField(null=True),
         ),
+        migrations.AddField(
+            model_name='article',
+            name='abstract',
+            field=models.TextField(null=True),
+        ),
+        migrations.AddField(
+            model_name='article',
+            name='author',
+            field=models.CharField(max_length=16, null=True),
+        ),
+        migrations.AddField(
+            model_name='article',
+            name='image_url',
+            field=models.CharField(max_length=255, null=True),
+        ),
+        migrations.AddField(
+            model_name='article',
+            name='state',
+            field=models.IntegerField(default=0),
+        ),
     ]
