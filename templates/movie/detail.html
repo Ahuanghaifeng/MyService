@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>电影下载</title>
     <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <link href="{% static 'css/movie_detail.css' %}" rel="stylesheet">
     <link href="{% static 'css/movie_base.css' %}" rel="stylesheet">
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -19,34 +20,23 @@
 </header>
 <body>
 <div class="container">
-    <div class="movie">
-        {% for movie in movies%}
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ntable" style="margin-top:6px">
-                <tr>
-                    <td height="1" colspan="2"></td>
-                </tr>
-                <tr>
-                    <td width="5%" height="26" align="center"></td>
-                    <td height="26"><b><a href="detail?id={{movie.id}}"><font color="#07519a">{{ movie.movie_name}}</font></a></b></td>
-                </tr>
-                <tr>
-                    <td height="20" style="padding-left:3px">&nbsp;</td>
-                    <td style="padding-left:3px"><font color="#8F8C89">{{movie.movie_time}}</font></td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="padding-left:3px">{{movie.movie_abstract}}</td>
-                </tr>
-            </table>
-        {% endfor %}
-    </div>
-    <div class="foot">
-        <ul class="pagination pagination-sm">
-            {{ page_obj.page_str|safe }}
-        </ul>
+    <div class="moviedetail">
+        <div class="title_all"><h1><font color=#07519a>{{movie.movie_name}}</font></h1></div>
+        <div class="content">
+            <img border="0" src="{{image1}}"><br>
+            <p>{{movie.movie_abstract}}</p>
+            <img border="0" src="{{image2}}"><br>
+            <strong><font color="#ff0000"><font size="4">【下载地址】</font></font></strong>
+            <br>
+            <br>
+            <p>{{movie.movie_download}}</p>
+            <br><br><br>
+            <p>复制链接打开迅雷下载</p>
+        </div>
     </div>
 </div>
 <footer>
-<a href="http://www.miitbeian.gov.cn">浙ICP备17051134号-1</a>
+    <a href="http://www.miitbeian.gov.cn"><font color="000">浙ICP备17051134号-1</font></a>
 </footer>
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
