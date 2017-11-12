@@ -1,0 +1,14 @@
+uwsgi --http 127.0.0.1:8088 --chdir /MyService --wsgi-file blog/wsgi.py --master --processes 4 --threads 2
+
+uwsgi∆Ù∂Ø£∫
+uwsgi XX.ini
+uwsgiÕ£÷π£∫
+killall -9 uwsgi
+
+
+nginx∆Ù∂Ø£∫
+nginx
+nginxÕ£÷π£∫
+nginx -s stop
+
+python manage.py collectstatic
