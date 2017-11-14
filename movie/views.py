@@ -21,7 +21,7 @@ def movie_index(request):
     print page
     print page_obj.start()
     movies = movie[page_obj.start():page_obj.end()]
-    return render(request, 'movie/index.html', {'movies': movies,'page_obj':page_obj})
+    return render(request, 'movie/index.html', {'movies': movies,'page_obj':page_obj, 'type': '0'})
 
 def movie_china(request):
     from movie.pager import Pagination
@@ -32,7 +32,7 @@ def movie_china(request):
     print page
     print page_obj.start()
     movies = movie[page_obj.start():page_obj.end()]
-    return render(request, 'movie/index.html', {'movies': movies, 'page_obj': page_obj})
+    return render(request, 'movie/index.html', {'movies': movies, 'page_obj': page_obj,'type': '1'})
 
 def movie_japan(request):
     from movie.pager import Pagination
@@ -43,7 +43,7 @@ def movie_japan(request):
     print page
     print page_obj.start()
     movies = movie[page_obj.start():page_obj.end()]
-    return render(request, 'movie/index.html', {'movies': movies, 'page_obj': page_obj})
+    return render(request, 'movie/index.html', {'movies': movies, 'page_obj': page_obj,'type': '2'})
 
 def movie_america(request):
     from movie.pager import Pagination
@@ -54,12 +54,24 @@ def movie_america(request):
     print page
     print page_obj.start()
     movies = movie[page_obj.start():page_obj.end()]
-    return render(request, 'movie/index.html', {'movies': movies, 'page_obj': page_obj})
+    return render(request, 'movie/index.html', {'movies': movies, 'page_obj': page_obj,'type': '3'})
 
 def movie_detail(request):
     movie_id = request.GET.get('id')
-    movie = models.china.objects.get(pk=movie_id)
-    img = models.china.objects.filter(pk=movie_id).values("movie_image")
+    tp = request.GET.get('type')
+    img = ''
+    if tp == '0':
+        movie = models.newmovie.objects.get(pk=movie_id)
+        img = models.newmovie.objects.filter(pk=movie_id).values("movie_image")
+    elif tp == '1':
+        movie = models.china.objects.get(pk=movie_id)
+        img = models.china.objects.filter(pk=movie_id).values("movie_image")
+    elif tp == '2':
+        movie = models.japanmovie.objects.get(pk=movie_id)
+        img = models.japanmovie.objects.filter(pk=movie_id).values("movie_image")
+    elif tp == '3':
+        movie = models.americamovie.objects.get(pk=movie_id)
+        img = models.americamovie.objects.filter(pk=movie_id).values("movie_image")
     imgs = list(img)
     dictimg = imgs[0]
     imageurl = dictimg['movie_image']
